@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="ProgressButton">
+        <attr name="texto" format="string" />
+        <attr name="icone" format="reference|integer" />
+        <attr name="fundo" format="reference|color" />
+    </declare-styleable>
+
+    <declare-styleable name="NumberSelector">
+        <attr name="valor" format="integer" />
+        <attr name="valor_minimo" format="integer" />
+        <attr name="valor_maximo" format="integer" />
+    </declare-styleable>
+</resources>
