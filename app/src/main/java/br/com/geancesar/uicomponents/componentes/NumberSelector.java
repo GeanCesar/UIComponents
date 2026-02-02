@@ -62,7 +62,9 @@ public class NumberSelector extends LinearLayout {
         binding.ivMais.setOnClickListener(l -> {
             if(valorMaximo == null || valor + 1 <= valorMaximo) {
                 valor = valor + 1;
-                listener.adiciona();
+                if(listener != null) {
+                    listener.adiciona();
+                }
             }
             refreshState();
         });
@@ -70,7 +72,9 @@ public class NumberSelector extends LinearLayout {
         binding.ivMenos.setOnClickListener(l -> {
             if(valorMinimo == null || valor - 1 >= valorMinimo) {
                 valor = valor - 1;
-                listener.remove();
+                if(listener != null) {
+                    listener.remove();
+                }
             }
             refreshState();
         });

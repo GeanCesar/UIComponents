@@ -11,4 +11,10 @@
         <attr name="valor_minimo" format="integer" />
         <attr name="valor_maximo" format="integer" />
     </declare-styleable>
+
+    <declare-styleable name="ValueButton">
+        <attr name="texto_value_button" format="string"/>
+        <attr name="valor_value_button" format="float" />
+        <attr name="fundo_value_button" format="reference|color" />
+    </declare-styleable>
 </resources>
