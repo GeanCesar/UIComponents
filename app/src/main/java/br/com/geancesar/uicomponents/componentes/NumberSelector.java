@@ -48,8 +48,6 @@ public class NumberSelector extends LinearLayout {
         setClickable(state.isEnabled());
 
         binding.tvValor.setText(valor + "");
-        binding.ivMais.setEnabled(state.isEnabled());
-        binding.ivMenos.setEnabled(state.isEnabled());
 
         if(valorMinimo != null && valorMinimo == valor) {
             binding.ivMenos.setEnabled(false);
@@ -65,6 +63,7 @@ public class NumberSelector extends LinearLayout {
                 if(listener != null) {
                     listener.adiciona();
                 }
+                atualizaState();
             }
             refreshState();
         });
@@ -75,11 +74,35 @@ public class NumberSelector extends LinearLayout {
                 if(listener != null) {
                     listener.remove();
                 }
+                atualizaState();
             }
             refreshState();
         });
 
+        habilitaBotoes();
         refreshDrawableState();
+    }
+
+    private void habilitaBotoes() {
+        binding.ivMais.setEnabled(state.getPlusEnabled() == null || state.getPlusEnabled() == true);
+        binding.ivMenos.setEnabled(state.getMinusEnabled() == null || state.getMinusEnabled() == true);
+
+        binding.ivMais.setAlpha(state.getPlusEnabled() == null || state.getPlusEnabled() == true ? 1 : 0.4F);
+        binding.ivMenos.setAlpha(state.getMinusEnabled() == null || state.getMinusEnabled() == true ? 1 : 0.4F);
+    }
+
+    private void atualizaState(){
+        if(valorMaximo == valor) {
+            setState(NumberSelectorState.PlusLocked.INSTANCE);
+            return;
+        }
+
+        if(valorMinimo == valor) {
+            setState(NumberSelectorState.MinusLocked.INSTANCE);
+            return;
+        }
+
+        setState(NumberSelectorState.Normal.INSTANCE);
     }
 
     private void setLayout(AttributeSet attrs) {
