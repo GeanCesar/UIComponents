@@ -18,7 +18,7 @@ public class NumberSelector extends LinearLayout {
     private int valor;
     private Integer valorMinimo;
     private Integer valorMaximo;
-    private NumberSelectorState state = NumberSelectorState.Normal.INSTANCE;
+    private NumberSelectorState state;
     private final NumberSelectorBinding binding;
 
     private NumberSelectorListener listener;
@@ -35,7 +35,7 @@ public class NumberSelector extends LinearLayout {
 
     private void inicia(AttributeSet attrs){
         setLayout(attrs);
-        setState(NumberSelectorState.Normal.INSTANCE);
+        refreshState();
     }
 
     private void setState(NumberSelectorState state) {
@@ -44,6 +44,10 @@ public class NumberSelector extends LinearLayout {
     }
 
     private void refreshState() {
+        if(state == null) {
+            atualizaState();
+        }
+
         setEnabled(state.isEnabled());
         setClickable(state.isEnabled());
 
@@ -78,7 +82,6 @@ public class NumberSelector extends LinearLayout {
             }
             refreshState();
         });
-
         habilitaBotoes();
         refreshDrawableState();
     }
@@ -91,13 +94,13 @@ public class NumberSelector extends LinearLayout {
         binding.ivMenos.setAlpha(state.getMinusEnabled() == null || state.getMinusEnabled() == true ? 1 : 0.4F);
     }
 
-    private void atualizaState(){
-        if(valorMaximo == valor) {
+    public void atualizaState(){
+        if(valorMaximo != null && valorMaximo == valor) {
             setState(NumberSelectorState.PlusLocked.INSTANCE);
             return;
         }
 
-        if(valorMinimo == valor) {
+        if(valorMinimo != null && valorMinimo == valor) {
             setState(NumberSelectorState.MinusLocked.INSTANCE);
             return;
         }
