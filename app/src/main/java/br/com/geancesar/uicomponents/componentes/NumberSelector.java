@@ -108,6 +108,14 @@ public class NumberSelector extends LinearLayout {
         setState(NumberSelectorState.Normal.INSTANCE);
     }
 
+    public void bloqueiaAdicionar(){
+        setState(NumberSelectorState.PlusLocked.INSTANCE);
+    }
+
+    public void desbloqueiaAdicionar(){
+        setState(NumberSelectorState.Normal.INSTANCE);
+    }
+
     private void setLayout(AttributeSet attrs) {
         if(attrs != null) {
             TypedArray atributos = getContext().obtainStyledAttributes(attrs, R.styleable.NumberSelector);
