@@ -17,4 +17,9 @@
         <attr name="valor_value_button" format="float" />
         <attr name="fundo_value_button" format="reference|color" />
     </declare-styleable>
+
+    <declare-styleable name="CheckSelect">
+        <attr name="tint_check_select" format="color" />
+        <attr name="checked_check_select" format="boolean" />
+    </declare-styleable>
 </resources>

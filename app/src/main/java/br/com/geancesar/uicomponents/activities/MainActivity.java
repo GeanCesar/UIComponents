@@ -7,7 +7,9 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import br.com.geancesar.uicomponents.R;
+import br.com.geancesar.uicomponents.componentes.CheckSelect;
 import br.com.geancesar.uicomponents.componentes.ProgressButton;
+import br.com.geancesar.uicomponents.componentes.ValueButton;
 import br.com.geancesar.uicomponents.componentes.listeners.ProgressButtonListener;
 
 
@@ -15,10 +17,17 @@ public class MainActivity extends AppCompatActivity implements ProgressButtonLis
 
     ProgressButton btTeste;
 
+    ValueButton btValor;
+
+    CheckSelect csCheck;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
+
+        btValor = findViewById(R.id.btAdicionar);
+        btValor.setEnabled(false);
 
         btTeste = findViewById(R.id.btTeste);
         btTeste.setListener(this);
@@ -41,6 +50,11 @@ public class MainActivity extends AppCompatActivity implements ProgressButtonLis
                     btTeste.setNormal();
                 }
             }.execute();
+        });
+
+        csCheck = findViewById(R.id.csCheck);
+        csCheck.setOnClickListener(l -> {
+            String a = "";
         });
     }
 

@@ -9,6 +9,7 @@
     <color name="black_alpha">#10C1C1C1</color>
     <color name="white">#FFFFFFFF</color>
     <color name="white_alpha">#88FFFFFF</color>
+    <color name="desabilitado">#E1E1E1</color>
     <color name="verde">#0CC355</color>
     <color name="verde_pressionado">#09B14C</color>
     <color name="verde_desabilitado">#52BF7D</color>

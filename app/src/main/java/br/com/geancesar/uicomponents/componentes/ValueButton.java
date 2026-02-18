@@ -19,8 +19,8 @@ public class ValueButton extends LinearLayout {
     private Drawable fundo;
     private String texto;
     private BigDecimal valor;
-
     private final ValueButtonBinding binding;
+    private boolean enabled;
 
     public ValueButton(Context context, @Nullable AttributeSet attrs) {
         this(context, attrs,0);
